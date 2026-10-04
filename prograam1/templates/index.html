@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <style>
+        table{border-collapse: collapse; width: 500px;}
+        td,th{border:1px solid #ccc;padding:6px;}
+    </style>
+</head>
+<body>
+    <h2>图书列表</h2>
+    <a href="/add">添加新图书</a>
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>操作</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td><a href="/delete/{{ book[0] }}" onclick="return confirm('确定删除？')">删除</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
